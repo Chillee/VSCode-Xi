@@ -1,0 +1,26 @@
+{
+    "name": "vscode-xi",
+    "displayName": "vscode-xi",
+    "description": "Xi Language for VSCode",
+    "version": "0.0.1",
+    "publisher": "chilli",
+    "engines": {
+        "vscode": "^1.21.0"
+    },
+    "categories": [
+        "Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "xi",
+            "aliases": ["Xi", "xi"],
+            "extensions": [".xi",".ixi"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "xi",
+            "scopeName": "",
+            "path": "./syntaxes/xi.tmLanguage.json"
+        }]
+    }
+}
