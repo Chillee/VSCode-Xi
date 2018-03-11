@@ -16,6 +16,9 @@
 		},
 		{
 			"include": "#types"
+		},
+		{
+			"include": "#functions"
 		}
 	],
 	"repository": {
@@ -82,12 +85,26 @@
 		"types": {
 			"patterns": [
 				{
-					"name": "storage.type.primitive.array",
-					"match": "\\b(int|bool)\\b\\s*(?=\\[)"
-				},
+					"name": "support.type",
+					"match": ":\\s*(int|bool)\\b"
+				}
+			]
+		},
+		"functions": {
+			"patterns": [
 				{
-					"name": "storage.type.primitive",
-					"match": "\\b(int|bool)\\b"
+					"begin": "([A-Za-z_$][\\w$]*)\\s*(\\()",
+					"beginCaptures": {
+						"1": {
+							"name": "entity.name.function"
+						}
+					},
+					"end": "\\)",
+					"patterns": [
+						{
+							"include": "#functions"
+						}
+					]
 				}
 			]
 		}
