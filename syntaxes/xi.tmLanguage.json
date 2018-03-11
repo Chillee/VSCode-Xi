@@ -7,14 +7,41 @@
 		},
 		{
 			"include": "#strings"
+		},
+		{
+			"include": "#comments"
+		},
+		{
+			"include": "#constants"
+		},
+		{
+			"include": "#types"
 		}
 	],
 	"repository": {
 		"keywords": {
-			"patterns": [{
-				"name": "keyword.control.xi",
-				"match": "\\b(if|while|for|return)\\b"
-			}]
+			"patterns": [
+				{
+					"name": "keyword.control.xi",
+					"match": "\\b(if|while|return|use)\\b"
+				},
+				{
+					"name": "keyword.operator.highmultiply",
+					"match": "(\\*>>)"
+				},
+				{
+					"match": "(==|!=|<=|>=|<>|<|>)",
+					"name": "keyword.operator.comparison"
+				},
+				{
+					"name": "keyword.operator.arithmetic",
+					"match": "(\\-|\\+|\\*|\\/|%)"
+				},
+				{
+					"name": "keyword.operator.assignment",
+					"match": "(=)"
+				}
+			]
 		},
 		"strings": {
 			"name": "string.quoted.double.xi",
@@ -26,7 +53,44 @@
 					"match": "\\\\."
 				}
 			]
+		},
+		"comments": {
+			"patterns": [
+				{
+					"name": "comment.line",
+					"match": "//(.*)"
+				},
+				{
+					"name": "comment.block",
+					"begin": "/\\*",
+					"end": "\\*/"
+				}
+			]
+		},
+		"constants": {
+			"patterns": [
+				{
+					"name": "constant.numeric",
+					"match": "(?x)\n(?<!\\$)\n(\n  \\b[0-9]([0-9_]*[0-9])?\\.\\B(?!\\.)\n  |\n  \\b[0-9]([0-9_]*[0-9])?\\.([Ee][+-]?[0-9]([0-9_]*[0-9])?)[FfDd]?\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?\\.([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?\\.([0-9]([0-9_]*[0-9])?)([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]?\\b\n  |\n  (?<!\\.)\\B\\.[0-9]([0-9_]*[0-9])?([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]?\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?([Ee][+-]?[0-9]([0-9_]*[0-9])?)[FfDd]?\\b\n  |\n  \\b[0-9]([0-9_]*[0-9])?([Ee][+-]?[0-9]([0-9_]*[0-9])?)?[FfDd]\\b\n  |\n  \\b(0|[1-9]([0-9_]*[0-9])?)(?!\\.)[Ll]?\\b\n)\n(?!\\$)"
+				},
+				{
+					"name": "constant.language",
+					"match": "\\b(true|false|null)\\b"
+				}
+			]
+		},
+		"types": {
+			"patterns": [
+				{
+					"name": "storage.type.primitive.array",
+					"match": "\\b(int|bool)\\b\\s*(?=\\[)"
+				},
+				{
+					"name": "storage.type.primitive",
+					"match": "\\b(int|bool)\\b"
+				}
+			]
 		}
 	},
-	"scopeName": ""
+	"scopeName": "text.xi"
 }

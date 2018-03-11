@@ -11,16 +11,26 @@
         "Languages"
     ],
     "contributes": {
-        "languages": [{
-            "id": "xi",
-            "aliases": ["Xi", "xi"],
-            "extensions": [".xi",".ixi"],
-            "configuration": "./language-configuration.json"
-        }],
-        "grammars": [{
-            "language": "xi",
-            "scopeName": "",
-            "path": "./syntaxes/xi.tmLanguage.json"
-        }]
+        "languages": [
+            {
+                "id": "xi",
+                "aliases": [
+                    "Xi",
+                    "xi"
+                ],
+                "extensions": [
+                    ".xi",
+                    ".ixi"
+                ],
+                "configuration": "./language-configuration.json"
+            }
+        ],
+        "grammars": [
+            {
+                "language": "xi",
+                "scopeName": "text.xi",
+                "path": "./syntaxes/xi.tmLanguage.json"
+            }
+        ]
     }
 }
