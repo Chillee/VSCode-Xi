@@ -2,14 +2,18 @@
     "name": "vscode-xi",
     "displayName": "vscode-xi",
     "description": "Xi Language for VSCode",
-    "version": "0.0.1",
-    "publisher": "chilli",
+    "version": "0.0.2",
+    "publisher": "chillee",
+    "repository": {
+        "url": "https://github.com/Chillee/VSCode-Xi"
+    },
     "engines": {
         "vscode": "^1.21.0"
     },
     "categories": [
         "Languages"
     ],
+    "icon": "images/cornell.png",
     "contributes": {
         "languages": [
             {
