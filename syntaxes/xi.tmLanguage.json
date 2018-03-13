@@ -26,7 +26,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.xi",
-					"match": "\\b(if|while|return|use)\\b"
+					"match": "\\b(if|while|return|use|else)\\b"
 				},
 				{
 					"name": "keyword.operator.highmultiply",
@@ -86,7 +86,7 @@
 			"patterns": [
 				{
 					"name": "support.type",
-					"match": ":\\s*(int|bool)\\b"
+					"match": "\\s*(int|bool)\\b"
 				}
 			]
 		},
@@ -103,6 +103,9 @@
 					"patterns": [
 						{
 							"include": "#functions"
+						},
+						{
+							"include": "text.xi"
 						}
 					]
 				}
