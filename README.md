@@ -9,4 +9,4 @@ Features:
 * Syntax Highlighting
 
 [Xi Language](http://www.cs.cornell.edu/courses/cs4120/2018sp/)
-![](images/example.jpg)
+![](https://github.com/Chillee/VSCode-Xi/raw/master/images/example.jpg)
