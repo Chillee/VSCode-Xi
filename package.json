@@ -14,6 +14,10 @@
         "Languages"
     ],
     "icon": "images/cornell.png",
+    "main": "./out/src/extension",
+    "activationEvents": [
+        "onLanguage:xi"
+    ],
     "contributes": {
         "languages": [
             {
@@ -36,5 +40,13 @@
                 "path": "./syntaxes/xi.tmLanguage.json"
             }
         ]
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install && tsc"
+    },
+    "devDependencies": {
+        "@types/node": "*",
+        "vscode": "1.0.3",
+        "typescript": "2.0.6"
     }
 }

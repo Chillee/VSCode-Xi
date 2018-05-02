@@ -26,7 +26,7 @@
 			"patterns": [
 				{
 					"name": "keyword.control.xi",
-					"match": "\\b(if|while|return|use|else)\\b"
+					"match": "\\b(if|while|return|use|else|break|continue|new|class)\\b"
 				},
 				{
 					"name": "keyword.operator.highmultiply",
@@ -78,7 +78,7 @@
 				},
 				{
 					"name": "constant.language",
-					"match": "\\b(true|false|null)\\b"
+					"match": "\\b(true|false|null|this)\\b"
 				}
 			]
 		},
