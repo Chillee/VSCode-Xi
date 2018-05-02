@@ -2,7 +2,7 @@
     "name": "vscode-xi",
     "displayName": "vscode-xi",
     "description": "Xi Language for VSCode",
-    "version": "0.0.3",
+    "version": "0.0.4",
     "publisher": "chillee",
     "repository": {
         "url": "https://github.com/Chillee/VSCode-Xi"

@@ -7,6 +7,7 @@ Features:
 * Commenting
 * Parens autoclosing
 * Syntax Highlighting
+* Autoindentation (Turn on `editor.formatonSave` or manually run the `Format Document` command)
 
 [Xi Language](http://www.cs.cornell.edu/courses/cs4120/2018sp/)
 ![](https://github.com/Chillee/VSCode-Xi/raw/master/images/example.jpg)
