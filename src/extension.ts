@@ -40,12 +40,10 @@ export function activate(context: vscode.ExtensionContext) {
                         inString = null;
                     }
                 }
-                if (numLeft - numRight > 0) {
+                if (numLeft - numRight >= 0) {
                     edits.push(vscode.TextEdit.replace(new vscode.Range(line.range.start, new vscode.Position(i, whiteIdx)), " ".repeat(indentLevel * 4)))
-                    indentLevel += numLeft - numRight;
-                } else {
-                    indentLevel += numLeft - numRight;
                 }
+                indentLevel += numLeft - numRight;
             }
             return edits;
         }
