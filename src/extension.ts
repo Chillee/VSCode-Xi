@@ -21,7 +21,8 @@ export function activate(context: vscode.ExtensionContext) {
                 let onlyRights = true;
                 let inString = null;
                 let curEdit = null;
-                for (const char of line.text) {
+                for (let charIdx = 0; charIdx < lineText.length; charIdx++) {
+                    const char = lineText[charIdx];
                     if (char == '{' && inString == null) {
                         numLeft++;
                         if (onlyRights) {
@@ -37,7 +38,7 @@ export function activate(context: vscode.ExtensionContext) {
                         inString = '"';
                     } else if (char == "'" && inString == null) {
                         inString = "'";
-                    } else if (char == inString) {
+                    } else if (char == inString && lineText[charIdx - 1] != '\\') {
                         inString = null;
                     }
                 }
