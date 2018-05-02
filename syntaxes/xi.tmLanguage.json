@@ -86,7 +86,7 @@
 			"patterns": [
 				{
 					"name": "support.type",
-					"match": "\\s*(int|bool)\\b"
+					"match": "\\b(int|bool)\\b"
 				}
 			]
 		},
