@@ -9,6 +9,7 @@ export function activate(context: vscode.ExtensionContext) {
     // 👍 formatter implemented using API
     vscode.languages.registerDocumentFormattingEditProvider('xi', {
         provideDocumentFormattingEdits(document: vscode.TextDocument): vscode.TextEdit[] {
+            // const whitespace
             let edits = [];
             let indentLevel = 0;
             for (let i = 0; i < document.lineCount; i++) {
@@ -17,19 +18,19 @@ export function activate(context: vscode.ExtensionContext) {
                 const lineText = line.text;
                 let numLeft = 0;
                 let numRight = 0;
-                let firstEncountered = false;
+                let onlyRights = true;
                 let inString = null;
+                let curEdit = null;
                 for (const char of line.text) {
                     if (char == '{' && inString == null) {
                         numLeft++;
-                        if (!firstEncountered) {
-                            firstEncountered = true;
+                        if (onlyRights) {
+                            onlyRights = false;
                         }
                     } else if (char == '}' && inString == null) {
                         numRight++;
-                        if (!firstEncountered) {
-                            firstEncountered = true;
-                            edits.push(vscode.TextEdit.replace(new vscode.Range(line.range.start, new vscode.Position(i, whiteIdx)), " ".repeat((indentLevel - 1) * 4)))
+                        if (onlyRights) {
+                            curEdit = vscode.TextEdit.replace(new vscode.Range(line.range.start, new vscode.Position(i, whiteIdx)), " ".repeat((indentLevel - numRight) * 4))
                         }
                     }
                     if (char == '"' && inString == null) {
@@ -41,9 +42,12 @@ export function activate(context: vscode.ExtensionContext) {
                     }
                 }
                 if (numLeft - numRight >= 0) {
-                    edits.push(vscode.TextEdit.replace(new vscode.Range(line.range.start, new vscode.Position(i, whiteIdx)), " ".repeat(indentLevel * 4)))
+                    curEdit = vscode.TextEdit.replace(new vscode.Range(line.range.start, new vscode.Position(i, whiteIdx)), " ".repeat(indentLevel * 4))
                 }
                 indentLevel += numLeft - numRight;
+                if (curEdit) {
+                    edits.push(curEdit);
+                }
             }
             return edits;
         }
